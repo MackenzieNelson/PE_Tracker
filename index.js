@@ -24,8 +24,8 @@ express()
       res.send("Works");
     }
     catch (err) {
-      console.errror(err);
+      console.error(err);
       res.send("Error" + err);
     }
   })
-  .listen(PORT, () => console.log('Listening on ${ PORT }'));
+  .listen(PORT, () => console.log('listening on ${ PORT }'));
