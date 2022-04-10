@@ -49,7 +49,7 @@ ORDER BY c.relname, a.attnum;
 `);
       
         const obs = await client.query(
-`SELECT * FROM observations`);
+`SELECT * FROM observations LEFT JOIN tasks ON observations.tasks_id = tasks.id`);
         
         const locals = {
           'tables': (tables) ? tables.rows : null,
@@ -89,7 +89,7 @@ RETURNING id as new_id;`);
     }
     catch (err) {
       console.error(err);
-      res.send("Error: " + err)
+      res.send("Error: " + err);
     }
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
