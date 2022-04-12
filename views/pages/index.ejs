@@ -14,13 +14,27 @@
   <% tasks.forEach(function(r) {%>
     <div style='padding: 1em;'>
     <button id='<%= r.id %>'
-    onClick='javascript:logTask(<%= r.id %>, value<%= r.id %>.value);'><%= r.name %> </button>
-    <select name="value<%= r.id %>" id="value<%= r.id %>">
-      <option value="'+00:02:00'">00:02:00</option>
-      <option value="'+00:05:00'">00:05:00</option>
-      <option value="'+00:10:00'">00:10:00</option>
-      <option value="'+00:15:00'">00:15:00</option>
-      <option value="'+00:20:00'">00:20:00</option>
+    onClick='javascript:logTask(<%= r.id %>, (valueOne<%= r.id %>.value.concat(valueTwo<%= r.id %>.value, valueThree<%= r.id %>.value)));'><%= r.name %> </button>
+    <select name="valueOne<%= r.id %>" id="valueOne<%= r.id %>">
+      <option value="'+00">00</option>
+      <option value="'+01">01</option>
+      <option value="'+02">02</option>
+      <option value="'+03">03</option>
+      <option value="'+04">04</option>
+    </select>
+    <select name="valueTwo<%= r.id %>" id="valueTwo<%= r.id %>">
+      <option value=":02">:02</option>
+      <option value=":05">:05</option>
+      <option value=":10">:10</option>
+      <option value=":15">:15</option>
+      <option value=":20">:20</option>
+    </select>
+    <select name="valueThree<%= r.id %>" id="valueThree<%= r.id %>">
+      <option value=":00'">:00</option>
+      <option value=":10'">:10</option>
+      <option value=":20'">:20</option>
+      <option value=":30'">:30</option>
+      <option value=":45'">:45</option>
     </select>
     </div>
   <%}); %>
@@ -43,7 +57,6 @@ const logTask = async function(id, duration) {
       })
   });
     const result = await response.json();
-    console.log(result);
     
     currentTaskId = id;
 };

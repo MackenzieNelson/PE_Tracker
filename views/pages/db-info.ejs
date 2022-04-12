@@ -14,7 +14,7 @@
   <h1>Observations</h1>
   <ul>
     <% obs.forEach(function(r) { %>
-      <li><%= r.name %> for <%= r.duration.minutes || "00"%>:<%= r.duration.seconds || "00"%></li>
+      <li><%= r.name %> for <%= r.duration.hours || "0"%> hours <%= r.duration.minutes || "0"%> minutes <%= r.duration.seconds || "0"%> seconds</li>
     <% }); %>
   </ul>
 </body>
